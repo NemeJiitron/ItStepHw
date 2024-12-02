@@ -8,9 +8,9 @@ private:
 	Contact _contact;
 	College _college;
 public:
-	Student(char* name, char* dateOfB, Contact contact, College college);
-	Student(Student&& other);
+	Student(char* name, char* dateOfB, Contact& contact, College& college);
+	Student(Student&& other) noexcept;
 	~Student();
-
+	void Show();
 };
 

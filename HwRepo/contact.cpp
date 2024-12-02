@@ -4,28 +4,34 @@
 
 Contact::Contact(char* num, char* country, char* city)
 {
-	_phonenum = new char[strlen(num)];
-	strcpy_s(_phonenum, strlen(num), num);
+	size_t size1 = strlen(num) + 1;
+	_phonenum = new char[size1];
+	strcpy_s(_phonenum, size1, num);
 	if (country != nullptr) {
-		_country = new char[strlen(country)];
-		strcpy_s(_country, strlen(country), country);
+		size_t size2 = strlen(num) + 1;
+		_country = new char[size2];
+		strcpy_s(_country, size2, country);
 	}
 	if (city != nullptr)
 	{
-		_city = new char[strlen(city)];
-		strcpy_s(_city, strlen(city), city);
+		size_t size3 = strlen(num) + 1;
+		_city = new char[size3];
+		strcpy_s(_city, size3, city);
 	}
 
 }
 
 Contact::Contact(Contact& other)
 {
-	_phonenum = new char[strlen(other._phonenum)];
-	strcpy_s(_phonenum, strlen(other._phonenum), other._phonenum);
-	_country = new char[strlen(other._country)];
-	strcpy_s(_country, strlen(other._country), other._country);
-	_city = new char[strlen(other._city)];
-	strcpy_s(_city, strlen(other._city), other._city);
+	size_t size1 = strlen(other._phonenum) + 1;
+	_phonenum = new char[size1];
+	strcpy_s(_phonenum, size1, other._phonenum);
+	size_t size2 = strlen(other._country) + 1;
+	_country = new char[size2];
+	strcpy_s(_country, size2, other._country);
+	size_t size3 = strlen(other._city) + 1;
+	_city = new char[size3];
+	strcpy_s(_city, size3, other._city);
 }
 
 Contact::Contact(Contact&& other) noexcept

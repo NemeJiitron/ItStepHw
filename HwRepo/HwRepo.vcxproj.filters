@@ -42,6 +42,9 @@
     <ClCompile Include="OOP_prac_student.cpp">
       <Filter>OOP</Filter>
     </ClCompile>
+    <ClCompile Include="Constr.Destr.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
