@@ -45,11 +45,16 @@
     <ClCompile Include="Constr.Destr.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="Робота_з_файлами_ч.2.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
     <Text Include="output.txt" />
     <Text Include="input2.txt" />
+    <Text Include="2_output.txt" />
+    <Text Include="2_input.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="contact.h">

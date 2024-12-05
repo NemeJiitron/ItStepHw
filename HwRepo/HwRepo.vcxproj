@@ -128,7 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="College.cpp" />
-    <ClCompile Include="Constr.Destr.cpp" />
+    <ClCompile Include="Constr.Destr.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="contact.cpp" />
     <ClCompile Include="OOP_practice.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -144,8 +146,11 @@
     <ClCompile Include="Робота_з_файлами_ч.1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Робота_з_файлами_ч.2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="2_input.txt" />
+    <Text Include="2_output.txt" />
     <Text Include="input.txt" />
     <Text Include="input2.txt" />
     <Text Include="output.txt" />
