@@ -11,5 +11,10 @@ public:
 	Array(const Array& other);
 	~Array();
 	void Show();
+	void fillRandom();
+	void setSize(int n);
+	void Sort();
+	int Min();
+	int Max();
 };
 

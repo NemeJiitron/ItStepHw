@@ -21,6 +21,12 @@ int main()
 	arr3.Show();
 	Array arr4(20, 10, 50);
 	arr4.Show();
-
+	arr.fillRandom();
+	arr.Show();
+	arr.setSize(7);
+	arr.Show();
+	arr.Sort();
+	arr.Show();
+	std::cout << arr.Min() << "\n" << arr.Max();
 	return 0;
 }
