@@ -1,4 +1,1 @@
-﻿  Робота_з_файлами_ч.2.cpp
-D:\Shag\ItStepHw\HwRepo\Робота_з_файлами_ч.2.cpp(67,14): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-D:\Shag\ItStepHw\HwRepo\Робота_з_файлами_ч.2.cpp(70,14): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  HwRepo.vcxproj -> D:\Shag\ItStepHw\x64\Debug\HwRepo.exe
+﻿  HwRepo.vcxproj -> D:\Shag\ItStepHw\x64\Debug\HwRepo.exe

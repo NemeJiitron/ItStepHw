@@ -7,6 +7,11 @@ String::String()
 	cStr = new char[length];
 }
 
+String::~String()
+{
+	delete[] cStr;
+}
+
 String::String(size_t size)
 {
 	length = size;
@@ -30,5 +35,15 @@ String::String(const String& str)
 void String::Show()
 {
 	puts(cStr);
+}
+
+void String::GetString()
+{
+	char str[80];
+	gets_s(str);
+	length = strlen(str);
+	strcpy_s(cStr, length, str);
+
+
 }
 

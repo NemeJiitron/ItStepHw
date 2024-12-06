@@ -143,10 +143,13 @@
     </ClCompile>
     <ClCompile Include="String.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="this.CopyCnstr.cpp" />
     <ClCompile Include="Робота_з_файлами_ч.1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Робота_з_файлами_ч.2.cpp" />
+    <ClCompile Include="Робота_з_файлами_ч.2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="2_input.txt" />
