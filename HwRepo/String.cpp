@@ -42,7 +42,7 @@ void String::GetString()
 	char str[80];
 	gets_s(str);
 	length = strlen(str);
-	strcpy_s(cStr, length, str);
+	strcpy_s(cStr, length + 1, str);
 
 
 }
