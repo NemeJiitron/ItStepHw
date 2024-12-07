@@ -2,6 +2,8 @@
 #include "String.h"
 #include "Array.h"
 
+using ArrayInt = Array<char>;
+
 int main()
 {
 	String str;
@@ -13,13 +15,13 @@ int main()
 	String str3(str2);
 	str3.Show();
 
-	Array arr(10);
+	ArrayInt arr(10);
 	arr.Show();
-	Array arr2(10, true);
+	ArrayInt arr2(10, true);
 	arr2.Show();
-	Array arr3(arr2);
+	ArrayInt arr3(arr2);
 	arr3.Show();
-	Array arr4(20, 10, 50);
+	ArrayInt arr4(20, 10, 50);
 	arr4.Show();
 	arr.fillRandom();
 	arr.Show();
