@@ -143,6 +143,7 @@
     <ClCompile Include="OOP_prac_student.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="String.cpp" />
     <ClCompile Include="Student.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Array.h" />
     <ClInclude Include="College.h" />
     <ClInclude Include="contact.h" />
+    <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="String.h" />
     <ClInclude Include="Student.h" />

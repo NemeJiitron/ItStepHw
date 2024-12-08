@@ -22,6 +22,7 @@ public:
 	int Max();
 	void Push_Back(T val);
 	void Pop_Back();
+	void Pop_Front();
 	void Clear();
 	T at(size_t index);
 };
@@ -189,6 +190,19 @@ inline void Array<T>::Pop_Back()
 	{
 		tmp[i] = _data[i];
 	}
+	delete[] _data;
+	_data = tmp;
+}
+
+template<typename T>
+inline void Array<T>::Pop_Front()
+{
+	T* tmp = new T[_size - 1];
+	for (size_t i = 0; i < _size; i++)
+	{
+		tmp[i] = _data[i + 1];
+	}
+	_size--;
 	delete[] _data;
 	_data = tmp;
 }

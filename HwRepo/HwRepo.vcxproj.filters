@@ -60,6 +60,9 @@
     <ClCompile Include="OOP_prac_Stack_Queue.cpp">
       <Filter>OOP</Filter>
     </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
@@ -85,6 +88,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Stack.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
