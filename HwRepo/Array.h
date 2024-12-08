@@ -8,6 +8,7 @@ private:
 	T* _data;
 	size_t _size;
 public:
+	Array();
 	Array(size_t n);
 	Array(size_t n, bool random);
 	Array(size_t n, int min, int max);
@@ -19,7 +20,18 @@ public:
 	void Sort();
 	int Min();
 	int Max();
+	void Push_Back(T val);
+	void Pop_Back();
+	void Clear();
+	T at(size_t index);
 };
+
+template<typename T>
+inline Array<T>::Array()
+{
+	_size = 0;
+	_data = new T[_size];
+}
 
 template<typename T>
 Array<T>::Array(size_t n)
@@ -152,6 +164,47 @@ int Array<T>::Max()
 		}
 	}
 	return res;
+}
+
+template<typename T>
+void Array<T>::Push_Back(T val)
+{
+	T* tmp = new T[_size + 1];
+	for (size_t i = 0; i < _size; i++)
+	{
+		tmp[i] = _data[i];
+	}
+	tmp[_size] = val;
+	_size++;
+	delete[] _data;
+	_data = tmp;
+}
+
+template<typename T>
+inline void Array<T>::Pop_Back()
+{
+	T* tmp = new T[_size - 1];
+	_size--;
+	for (size_t i = 0; i < _size; i++)
+	{
+		tmp[i] = _data[i];
+	}
+	delete[] _data;
+	_data = tmp;
+}
+
+template<typename T>
+void Array<T>::Clear()
+{
+	_size = 0;
+	delete[] _data;
+	_data = new T[_size];
+}
+
+template<typename T>
+T Array<T>::at(size_t index)
+{
+	return _data[index];
 }
 
 

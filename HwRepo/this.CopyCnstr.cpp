@@ -30,5 +30,6 @@ int main()
 	arr.Sort();
 	arr.Show();
 	std::cout << arr.Min() << "\n" << arr.Max();
+	ArrayInt arr();
 	return 0;
 }
