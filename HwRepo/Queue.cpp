@@ -18,10 +18,12 @@ int Queue::Top()
 
 void Queue::Pop()
 {
+	_size--;
 	_arr.Pop_Front();
 }
 
 void Queue::Push(int val)
 {
+	_size++;
 	_arr.Push_Back(val);
 }

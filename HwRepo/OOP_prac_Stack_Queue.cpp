@@ -3,9 +3,9 @@
 
 int main()
 {
-	Stack stk;
-	stk.Push(8);
-	stk.Push(10);
+	Stack<char> stk;
+	stk.Push(40);
+	stk.Push(67);
 	std::cout << stk.Top() << std::endl;
 	stk.Pop();
 	std::cout << stk.Top() << std::endl;
