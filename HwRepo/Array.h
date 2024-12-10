@@ -11,6 +11,7 @@ public:
 	Array();
 	Array(size_t n);
 	Array(size_t n, bool random);
+	Array(size_t n, T*);
 	Array(size_t n, int min, int max);
 	Array(const Array& other);
 	~Array();
@@ -25,10 +26,28 @@ public:
 	void Pop_Front();
 	void Clear();
 	T at(size_t index);
+	Array& operator=(const Array& other);
+	Array operator+(const Array& other);
+	Array& operator+=(const Array& other);
+	T operator[](size_t index);
+	friend std::ostream& operator<<(std::ostream& os, const Array& arr)
+	{
+		for (size_t i = 0; i < arr._size; i++)
+		{
+			os << arr._data[i] << " ";
+		}
+		os << std::endl;
+		return os;
+	};
+	bool operator==(const Array& other);
+	bool operator!=(const Array& other);
+	bool operator<(const Array& other);
+	bool operator>(const Array& other);
+	Array operator*(const Array& other);
 };
 
 template<typename T>
-inline Array<T>::Array()
+Array<T>::Array()
 {
 	_size = 0;
 	_data = new T[_size];
@@ -50,6 +69,17 @@ Array<T>::Array(size_t n, bool random)
 	for (size_t i = 0; i < _size; i++)
 	{
 		_data[i] = rand() % 100;
+	}
+}
+
+template<typename T>
+Array<T>::Array(size_t n, T* arr)
+{
+	_size = n;
+	_data = new T[_size];
+	for (size_t i = 0; i < _size; i++)
+	{
+		_data[i] = arr[i];
 	}
 }
 
@@ -182,7 +212,7 @@ void Array<T>::Push_Back(T val)
 }
 
 template<typename T>
-inline void Array<T>::Pop_Back()
+void Array<T>::Pop_Back()
 {
 	T* tmp = new T[_size - 1];
 	_size--;
@@ -195,7 +225,7 @@ inline void Array<T>::Pop_Back()
 }
 
 template<typename T>
-inline void Array<T>::Pop_Front()
+void Array<T>::Pop_Front()
 {
 	T* tmp = new T[_size - 1];
 	for (size_t i = 0; i < _size; i++)
@@ -221,4 +251,124 @@ T Array<T>::at(size_t index)
 	return _data[index];
 }
 
+template<typename T>
+Array<T>& Array<T>::operator=(const Array& other)
+{
+	delete[] _data;
+	_size = other._size;
+	_data = new T[_size];
+	for (size_t i = 0; i < _size; i++)
+	{
+		_data[i] = other._data[i];
+	}
+	return *this;
+}
 
+template<typename T>
+Array<T> Array<T>::operator+(const Array& other)
+{
+	size_t size = _size + other._size;
+	T* tmp = new T[size];
+	for (size_t i = 0; i < _size; i++)
+	{
+		tmp[i] = _data[i];
+	}
+	for (size_t i = _size; i < size; i++)
+	{
+		tmp[i] = other._data[i - _size];
+	}
+	Array nArr(size, tmp);
+	delete[] tmp;
+	return nArr;
+}
+
+template<typename T>
+Array<T>& Array<T>::operator+=(const Array& other)
+{
+	size_t size = _size + other._size;
+	T* tmp = new T[size];
+	for (size_t i = 0; i < _size; i++)
+	{
+		tmp[i] = _data[i];
+	}
+	for (size_t i = _size; i < size; i++)
+	{
+		tmp[i] = other._data[i - _size];
+	}
+	_size = size;
+	delete[] _data;
+	_data = tmp;
+	return *this;
+}
+
+template<typename T>
+T Array<T>::operator[](size_t index)
+{
+	return _data[index];
+}
+
+template<typename T>
+bool Array<T>::operator==(const Array& other)
+{
+	for (size_t i = 0; i < _size; i++)
+	{
+		if (_data[i] != other._data[i])
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+template<typename T>
+bool Array<T>::operator!=(const Array& other)
+{
+	for (size_t i = 0; i < _size; i++)
+	{
+		if (_data[i] != other._data[i])
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+template<typename T>
+bool Array<T>::operator<(const Array& other)
+{
+	return _size < other._size;
+}
+
+template<typename T>
+bool Array<T>::operator>(const Array& other)
+{
+	return _size > other._size;
+}
+
+template<typename T>
+inline Array<T> Array<T>::operator*(const Array& other)
+{
+	size_t size = 0;
+	int* temp = new int[_size];
+	for (size_t i = 0; i < _size; i++)
+	{
+		for (size_t j = 0; j < other._size; j++)
+		{
+			if (_data[i] == other._data[i])
+			{
+				temp[size] = _data[i];
+				size++;
+				break;
+			}
+		}
+	}
+	int* dynam_temp = new int[size];
+	for (size_t i = 0; i < size; i++)
+	{
+		dynam_temp[i] = temp[i];
+	}
+	Array nArr(size, dynam_temp);
+	delete[] temp;
+	delete[] dynam_temp;
+	return nArr;
+}
