@@ -1,4 +1,6 @@
 #pragma once
+#include<iostream>
+
 class String
 {
 private:
@@ -9,8 +11,18 @@ public:
 	~String();
 	String(size_t size);
 	String(char*);
+	String(const char* str);
 	String(const String& str);
 	void Show();
 	void GetString();
+	String& operator=(const String& other);
+	String operator+(const String& other);
+	String& operator+=(const String& other);
+	bool operator==(const String& other);
+	bool operator!=(const String& other);
+	bool operator<(const String& other);
+	bool operator>(const String & other);
+	char operator[](size_t index);
+	friend std::ostream& operator<<(std::ostream& os, const String&);
 };
 
