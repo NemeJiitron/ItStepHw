@@ -1,35 +1,38 @@
 #include "Student.h"
 #include <iostream>
 
-Student::Student(char* name, char* dateOfB, Contact& contact, College& college)
-	:_contact(contact), _college(college)
+Student::Student(String& name, String& dateOfB, Contact& contact, College& college)
+	:_contact(contact), _college(college), _name(name), _dateOfB(dateOfB)
 {
-	size_t size = strlen(name) + 1;
-	_name = new char[size];
-	strcpy_s(_name, size, name);
-	size_t size2 = strlen(dateOfB) + 1;
-	_dateOfB = new char[size2];
-	strcpy_s(_dateOfB, size2, dateOfB);
+	
 }
 
 Student::Student(Student&& other) noexcept
-	: _contact(std::move(other._contact)), _college(std::move(other._college))
+	: _contact(std::move(other._contact)), _college(std::move(other._college)), _name(std::move(other._name)), _dateOfB(std::move(other._dateOfB))
 {
-	_name = other._name;
-	_dateOfB = other._dateOfB;
+	
+}
+
+Student& Student::operator=(Student&& other)
+{
+	_college = std::move(other._college);
+	_contact = std::move(other._contact);
+	_name = std::move(other._name);
+	_dateOfB = std::move(other._dateOfB);
+	return *this;
+
 }
 
 
 Student::~Student()
 {
-	delete[] _name;
-	delete[] _dateOfB;
+	
 }
 
 void Student::Show()
 {
-	std::cout << "Name - " << _name << std::endl;
-	std::cout << "Birthdate - " << _dateOfB << std::endl;
+	std::cout << "Name - " << _name;
+	std::cout << "Birthdate - " << _dateOfB;
 	std::cout << "College info: " << std::endl;
 	_college.Show();
 	std::cout << "Contact info: " << std::endl;

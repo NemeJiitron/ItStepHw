@@ -14,6 +14,7 @@ public:
 	Array(size_t n, T*);
 	Array(size_t n, int min, int max);
 	Array(const Array& other);
+	Array(Array&& other) noexcept;
 	~Array();
 	void Show();
 	void fillRandom();
@@ -27,6 +28,7 @@ public:
 	void Clear();
 	T at(size_t index);
 	Array& operator=(const Array& other);
+	Array& operator=(Array&& other);
 	Array operator+(const Array& other);
 	Array& operator+=(const Array& other);
 	T operator[](size_t index);
@@ -104,6 +106,16 @@ Array<T>::Array(const Array& other)
 	{
 		_data[i] = other._data[i];
 	}
+}
+
+template<typename T>
+Array<T>::Array(Array&& other) noexcept
+{
+	_data = other._data;
+	_size - other._size;
+	other._data = nullptr;
+	other._size = 0;
+
 }
 
 template<typename T>
@@ -262,6 +274,17 @@ Array<T>& Array<T>::operator=(const Array& other)
 		_data[i] = other._data[i];
 	}
 	return *this;
+}
+
+template<typename T>
+ Array<T>& Array<T>::operator=(Array&& other)
+{
+	 delete[] _data;
+	 delete[] _size;
+	 _data = other._data;
+	 _size - other._size;
+	 other._data = nullptr;
+	 other._size = 0;
 }
 
 template<typename T>

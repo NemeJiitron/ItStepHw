@@ -4,11 +4,12 @@ class College
 {
 private:
 	Contact _contact;
-	char* _name;
+	String _name;
 public:
-	College(Contact& contactt, char* name);
+	College(Contact& contactt, String& name);
 	College(College& other);
 	College(College&& other) noexcept;
+	College& operator=(College&& other);
 	~College();
 	void Show();
 };

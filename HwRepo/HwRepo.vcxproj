@@ -133,6 +133,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="contact.cpp" />
+    <ClCompile Include="Move_semantics.cpp" />
     <ClCompile Include="OOP_practice.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -145,7 +146,9 @@
     <ClCompile Include="OOP_prac_student.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Operator_Overload.cpp" />
+    <ClCompile Include="Operator_Overload.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="String.cpp" />

@@ -2,38 +2,37 @@
 #include <iostream>
 
 
-College::College(Contact& contactt, char* name)
-	: _contact(contactt)
+College::College(Contact& contactt, String& name)
+	: _contact(contactt), _name(name)
 {
-	size_t size = strlen(name) + 1;
-	_name = new char[size];
-	strcpy_s(_name, size, name);
 
 }
 
 College::College(College& other)
-	: _contact(other._contact)
+	: _contact(other._contact), _name(other._name)
 {
-	size_t size = strlen(other._name) + 1;
-	_name = new char[size];
-	strcpy_s(_name, size, other._name);
 }
 
 College::College(College&& other) noexcept
-	: _contact(std::move(other._contact))
+	: _contact(std::move(other._contact)), _name(std::move(other._name))
 {
-	_name = new char[strlen(other._name)];
-	strcpy_s(_name, strlen(other._name), other._name);
-	other._name = nullptr;
+	
+}
+
+College& College::operator=(College&& other)
+{
+	_name = std::move(other._name);
+	_contact = std::move(other._contact);
+	return *this;
 }
 
 College::~College()
 {
-	delete[] _name;
+	
 }
 
 void College::Show()
 {
-	std::cout << "College - " << _name << std::endl;
+	std::cout << "College - " << _name;
 	_contact.Show();
 }

@@ -13,9 +13,11 @@ public:
 	String(char*);
 	String(const char* str);
 	String(const String& str);
+	String(String&& str);
 	void Show();
 	void GetString();
 	String& operator=(const String& other);
+	String& operator=(String&& other) noexcept;
 	String operator+(const String& other);
 	String& operator+=(const String& other);
 	bool operator==(const String& other);

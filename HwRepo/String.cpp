@@ -40,6 +40,14 @@ String::String(const String& str)
 	strcpy_s(cStr, length, str.cStr);
 }
 
+String::String(String&& str)
+{
+	cStr = str.cStr;
+	length = str.length;
+	str.cStr = nullptr;
+	str.length = 0;
+}
+
 void String::Show()
 {
 	puts(cStr);
@@ -61,6 +69,16 @@ String& String::operator=(const String& other)
 	length = other.length;
 	cStr = new char[length];
 	strcpy_s(cStr, length, other.cStr);
+	return *this;
+}
+
+String& String::operator=(String&& other) noexcept
+{
+	delete[] cStr;
+	cStr = other.cStr;
+	length = other.length;
+	other.cStr = nullptr;
+	other.length = 0;
 	return *this;
 }
 
