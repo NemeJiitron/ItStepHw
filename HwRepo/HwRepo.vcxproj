@@ -133,7 +133,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="contact.cpp" />
-    <ClCompile Include="Move_semantics.cpp" />
+    <ClCompile Include="Move_semantics.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="OOP_linked_lists.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="OOP_practice.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -153,6 +158,7 @@
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="String.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="TemplateArr_Capacity.cpp" />
     <ClCompile Include="this.CopyCnstr.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -174,6 +180,8 @@
     <ClInclude Include="Array.h" />
     <ClInclude Include="College.h" />
     <ClInclude Include="contact.h" />
+    <ClInclude Include="DoubleList.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="String.h" />
