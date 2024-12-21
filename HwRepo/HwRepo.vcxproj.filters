@@ -75,6 +75,9 @@
     <ClCompile Include="OOP_linked_lists.cpp">
       <Filter>OOP</Filter>
     </ClCompile>
+    <ClCompile Include="Stack.Queue.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />

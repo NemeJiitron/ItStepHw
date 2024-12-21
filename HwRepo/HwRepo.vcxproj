@@ -156,9 +156,12 @@
     </ClCompile>
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="Stack.Queue.cpp" />
     <ClCompile Include="String.cpp" />
     <ClCompile Include="Student.cpp" />
-    <ClCompile Include="TemplateArr_Capacity.cpp" />
+    <ClCompile Include="TemplateArr_Capacity.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="this.CopyCnstr.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
