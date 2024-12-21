@@ -81,11 +81,8 @@ Circle::~Circle()
 {
 }
 
-class InscribedCircle
+class InscribedCircle : Circle, Square
 {
-protected:
-	Square square;
-	Circle circle;
 public:
 	InscribedCircle();
 	InscribedCircle(const char* color, size_t h, size_t r);
@@ -95,11 +92,11 @@ private:
 
 };
 
-InscribedCircle::InscribedCircle() : square(), circle()
+InscribedCircle::InscribedCircle() : Circle(), Square()
 {
 }
 
-InscribedCircle::InscribedCircle(const char* color, size_t h, size_t r) : square(color, h), circle(color, r)
+InscribedCircle::InscribedCircle(const char* color, size_t h, size_t r) : Square(color, h), Circle(color, r)
 {
 }
 
@@ -110,7 +107,7 @@ InscribedCircle::~InscribedCircle()
 
 int main()
 {
-
+	InscribedCircle squarecircle;
 
 	return 0;
 }
