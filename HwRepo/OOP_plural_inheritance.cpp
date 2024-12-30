@@ -92,11 +92,11 @@ private:
 
 };
 
-InscribedCircle::InscribedCircle() : Circle(), Square()
+InscribedCircle::InscribedCircle() : Circle(), Square(), Figure::Figure()
 {
 }
 
-InscribedCircle::InscribedCircle(const char* color, size_t h, size_t r) : Square(color, h), Circle(color, r)
+InscribedCircle::InscribedCircle(const char* color, size_t h, size_t r) : Square(color, h), Circle(color, r), Figure::Figure(color)
 {
 }
 

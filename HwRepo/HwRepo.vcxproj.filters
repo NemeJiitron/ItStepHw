@@ -78,6 +78,9 @@
     <ClCompile Include="Stack.Queue.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="OOP_plural_inheritance.cpp">
+      <Filter>OOP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
