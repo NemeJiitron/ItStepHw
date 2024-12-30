@@ -13,6 +13,7 @@ public:
 	T Top();
 	void Pop();
 	void Push(T val);
+	size_t GetSize();
 };
 
 template<typename T>
@@ -46,5 +47,11 @@ void Stack<T>::Push(T val)
 {
 	_size++;
 	_arr.Push_Back(val);
+}
+
+template<typename T>
+inline size_t Stack<T>::GetSize()
+{
+	return _size;
 }
 
