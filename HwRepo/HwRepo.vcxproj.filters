@@ -81,6 +81,9 @@
     <ClCompile Include="OOP_plural_inheritance.cpp">
       <Filter>OOP</Filter>
     </ClCompile>
+    <ClCompile Include="Double_list.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />

@@ -133,6 +133,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="contact.cpp" />
+    <ClCompile Include="Double_list.cpp" />
     <ClCompile Include="Move_semantics.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -159,7 +160,9 @@
     </ClCompile>
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Stack.cpp" />
-    <ClCompile Include="Stack.Queue.cpp" />
+    <ClCompile Include="Stack.Queue.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="String.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="TemplateArr_Capacity.cpp">
