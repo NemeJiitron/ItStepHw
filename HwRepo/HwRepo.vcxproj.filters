@@ -84,6 +84,9 @@
     <ClCompile Include="Double_list.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="OOP_abstractClass_virtDestrctr.cpp">
+      <Filter>OOP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
