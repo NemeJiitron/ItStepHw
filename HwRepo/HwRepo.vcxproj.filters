@@ -87,6 +87,9 @@
     <ClCompile Include="OOP_abstractClass_virtDestrctr.cpp">
       <Filter>OOP</Filter>
     </ClCompile>
+    <ClCompile Include="OOP_try_catch.cpp">
+      <Filter>OOP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
