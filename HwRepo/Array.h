@@ -1,5 +1,9 @@
 #pragma once
+#include <ios>
+#include <ostream> 
+#include <istream> 
 #include <iostream>
+#include <fstream>
 
 template<typename T>
 class Array
@@ -34,6 +38,8 @@ public:
 	void Clear();
 	void Reserve(int val);
 	void Shrink();
+	void Save(const char* filename);
+	void Load(const char* filename);
 	T at(size_t index);
 	Array& operator=(const Array& other);
 	Array& operator=(Array&& other);
@@ -356,6 +362,30 @@ void Array<T>::Shrink()
 		}
 		delete[] _data;
 		_data = tmp;
+	}
+}
+
+template<typename T>
+void Array<T>::Save(const char* filename)
+{
+	std::fstream filestream(filename, std::ios::out);
+	if (filestream.is_open())
+	{
+		filestream.write(reinterpret_cast<char*>(this), sizeof(*this));
+		
+	}
+}
+
+template<typename T>
+void Array<T>::Load(const char* filename)
+{
+	std::fstream filestream(filename, std::ios::in);
+	if (filestream.is_open())
+	{
+		char* buf = new char[sizeof(*this)];
+		filestream.read(reinterpret_cast<char*>(buf), sizeof(*this));
+		Array<T>* ptr = reinterpret_cast<Array<T>*>(buf);
+		this->operator=(*ptr);
 	}
 }
 

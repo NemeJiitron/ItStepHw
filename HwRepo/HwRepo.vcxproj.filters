@@ -90,6 +90,15 @@
     <ClCompile Include="OOP_try_catch.cpp">
       <Filter>OOP</Filter>
     </ClCompile>
+    <ClCompile Include="OOP_typeTransform.cpp">
+      <Filter>OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="OOP_iostream.cpp">
+      <Filter>OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="OOP_iostream_prac.cpp">
+      <Filter>OOP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
@@ -97,6 +106,7 @@
     <Text Include="input2.txt" />
     <Text Include="2_output.txt" />
     <Text Include="2_input.txt" />
+    <Text Include="array1Save.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="contact.h">
