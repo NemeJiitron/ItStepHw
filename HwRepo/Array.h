@@ -371,7 +371,8 @@ void Array<T>::Save(const char* filename)
 	std::fstream filestream(filename, std::ios::out);
 	if (filestream.is_open())
 	{
-		filestream.write(reinterpret_cast<char*>(this), sizeof(*this));
+		filestream.write(reinterpret_cast<char*>(&_size), sizeof(size_t));
+		filestream.write(reinterpret_cast<char*>(_data), sizeof(T) * _size);
 		
 	}
 }
@@ -382,10 +383,11 @@ void Array<T>::Load(const char* filename)
 	std::fstream filestream(filename, std::ios::in);
 	if (filestream.is_open())
 	{
-		char* buf = new char[sizeof(*this)];
-		filestream.read(reinterpret_cast<char*>(buf), sizeof(*this));
-		Array<T>* ptr = reinterpret_cast<Array<T>*>(buf);
-		this->operator=(*ptr);
+		filestream.read(reinterpret_cast<char*>(&_size), sizeof(size_t));
+		delete[] _data;
+		_data = new T[_size];
+		capacity = _size;
+		filestream.read(reinterpret_cast<char*>(_data), sizeof(T) * _size);
 	}
 }
 

@@ -18,9 +18,9 @@ int main()
 	Student matt(name, dateofB, college_cont, college);
 	matt.Show();*/
 
-	Array<int> arr1(10, true);
+	/*Array<int> arr1(15, true);
 	arr1.Show();
-	arr1.Save("array1Save.txt");
+	arr1.Save("array1Save.txt");*/
 	Array<int> arr2(10);
 	arr2.Show();
 	arr2.Load("array1Save.txt");
