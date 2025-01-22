@@ -5,8 +5,9 @@
 class Stick : public Weapon
 {
 protected:
-	int charges;	
+	int charges = 10;	
 public:
+	Stick(const char* name, int damage, Grade grade);
 	int getDamage();
 };
 

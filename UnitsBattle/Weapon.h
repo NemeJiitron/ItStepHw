@@ -13,13 +13,20 @@ enum Grade
 class Weapon
 {
 protected:
-	Grade grade;
-	std::string name;
-	int damage;
+	Grade _grade;
+	std::string _name;
+	int _damage;
 public:
-	Weapon(std::string name, Grade grade);
-	Weapon(std::string name);
+	Weapon(const char* _name, int damage, Grade _grade);
+	Weapon(std::string _name);
 	int getDamage();
 	void Upgrade();
+	void Show();
+	friend std::ostream& operator<<(std::ostream& os, const Weapon& self)
+	{
+		os << "Weapon name - " << self._name << ". Weapon damage - " << self._damage << ". Grade - " << self._grade;
+		os << std::endl;
+		return os;
+	};
 };
 

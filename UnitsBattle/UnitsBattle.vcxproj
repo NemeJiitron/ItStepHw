@@ -127,7 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Archer.h" />
+    <ClInclude Include="Archer.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Bow.h" />
     <ClInclude Include="Mage.h" />
     <ClInclude Include="Stick.h" />
@@ -137,9 +139,12 @@
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Archer.cpp" />
+    <ClCompile Include="Archer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Bow.cpp" />
     <ClCompile Include="Mage.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Stick.cpp" />
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="Swordsman.cpp" />

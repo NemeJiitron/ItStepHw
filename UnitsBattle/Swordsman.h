@@ -1,13 +1,14 @@
 #pragma once
 #include "Unit.h"
+#include "Sword.h"
 class Swordsman : public Unit
 {
 protected:
 	unsigned int power;
 public:
-	Swordsman(std::string name, int hitpoints, unsigned int power);
+	Swordsman(const char* name, int hitpoints, Sword& sword, unsigned int pwr);
 	Swordsman(std::string name);
-	void Attack(Unit other);
+	int Attack(Unit& other);
 	void Defense();
 };
 

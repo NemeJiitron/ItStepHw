@@ -1,13 +1,15 @@
 #pragma once
 #include "Unit.h"
+
+
 class Archer : public Unit
 {
 protected:
-	unsigned int arrows;
+	unsigned int arrows = 10;
 public:
-	Archer(std::string name, int hitpoints, unsigned int arrows);
+	Archer(const char* name, int hitpoints, Bow& bow);
 	Archer(std::string name);
-	void Attack(Unit other);
+	int Attack(Unit& other);
 	void Defense();
 };
 

@@ -43,7 +43,7 @@
       <Filter>Исходные файлы\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="Sword.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Исходные файлы\Weapons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -69,7 +69,10 @@
       <Filter>Исходные файлы\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="Sword.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

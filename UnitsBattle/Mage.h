@@ -1,14 +1,15 @@
 #pragma once
 #include "Unit.h"
+#include "Stick.h"
 
 class Mage : public Unit
 {
 protected:
 	unsigned int mana;
 public:
-	Mage(std::string name, int hitpoints, unsigned int mana);
+	Mage(const char* name, int hitpoints, Stick& stick);
 	Mage(std::string name);
 	void Defense();
-	void Attack(Unit other); 
+	int Attack(Unit& other);
 };
 
