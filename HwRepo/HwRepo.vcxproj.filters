@@ -78,9 +78,6 @@
     <ClCompile Include="Stack.Queue.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="OOP_plural_inheritance.cpp">
-      <Filter>OOP</Filter>
-    </ClCompile>
     <ClCompile Include="Double_list.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
@@ -97,6 +94,12 @@
       <Filter>OOP</Filter>
     </ClCompile>
     <ClCompile Include="OOP_iostream_prac.cpp">
+      <Filter>OOP</Filter>
+    </ClCompile>
+    <ClCompile Include="A_B_C.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="OOP_plural_inheritance.cpp">
       <Filter>OOP</Filter>
     </ClCompile>
   </ItemGroup>
