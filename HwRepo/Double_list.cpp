@@ -23,6 +23,7 @@ int main()
 	list.AddToHead(3);
 	list.AddToHead(4);
 	list.AddToHead(5);
+	list.Show();
 	list.Insert(2, 555);
 	list.Insert(4, 555);
 	list.Show();
@@ -41,5 +42,8 @@ int main()
 	std::cout << list.Replace(6000, 6) << std::endl;
 	std::cout << list.Replace(1, 100000) << std::endl;
 	list.Show();
+	/*
+	* 
+	*/
 	return 0;
 }
