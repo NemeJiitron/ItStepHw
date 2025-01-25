@@ -1,11 +1,11 @@
 #include "Bow.h"
 
-Bow::Bow(const char* name, int damage, Grade grade, size_t max_damage)
-    : Weapon::Weapon(name, damage, grade), _max_damage(max_damage)
+Bow::Bow(const char* name, int damage, Grade grade)
+    : Weapon::Weapon(name, damage, grade)
 {
 }
 
 int Bow::getDamage()
 {
-    return Weapon::getDamage() + _max_damage;
+    return Weapon::getDamage();
 }

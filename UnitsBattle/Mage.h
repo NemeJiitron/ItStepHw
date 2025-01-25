@@ -9,7 +9,6 @@ protected:
 public:
 	Mage(const char* name, int hitpoints, Stick& stick);
 	Mage(std::string name);
-	void Defense();
 	int Attack(Unit& other);
 };
 

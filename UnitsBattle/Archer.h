@@ -10,6 +10,5 @@ public:
 	Archer(const char* name, int hitpoints, Bow& bow);
 	Archer(std::string name);
 	int Attack(Unit& other);
-	void Defense();
 };
 
