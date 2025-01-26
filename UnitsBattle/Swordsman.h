@@ -1,7 +1,7 @@
 #pragma once
 #include "Unit.h"
 #include "Sword.h"
-class Swordsman : public Unit
+class Swordsman : virtual public Unit
 {
 protected:
 	unsigned int power;

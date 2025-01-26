@@ -1,8 +1,9 @@
 #pragma once
 #include "Unit.h"
+#include "Bow.h"
 
 
-class Archer : public Unit
+class Archer : virtual public Unit
 {
 protected:
 	unsigned int arrows = 10;

@@ -2,7 +2,7 @@
 #include "Unit.h"
 #include "Stick.h"
 
-class Mage : public Unit
+class Mage : virtual public Unit
 {
 protected:
 	unsigned int mana;
