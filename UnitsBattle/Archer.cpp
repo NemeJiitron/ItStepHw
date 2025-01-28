@@ -1,7 +1,7 @@
 #include "Archer.h"
 
 Archer::Archer(const char* name, int hitpoints, Bow& bow)
-	: Unit::Unit(name, hitpoints, 2, bow)
+	: Unit::Unit(name, hitpoints, 20, bow)
 {
 }
 
@@ -14,11 +14,6 @@ int Archer::Attack(Unit& other)
 	}
 	if (arrows)
 	{
-		if (other.isInDefense())
-		{
-			damage /= other.getArmor();
-		}
-		DamageMessage(other, damage);
 		other.GetHit(damage);
 		if (!other.isAlive())
 		{

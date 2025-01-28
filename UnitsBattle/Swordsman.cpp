@@ -2,7 +2,7 @@
 
 
 Swordsman::Swordsman(const char* name, int hitpoints, Sword& sword, unsigned int pwr)
-	:Unit::Unit(name, hitpoints, 3, sword), power(pwr)
+	:Unit::Unit(name, hitpoints, 30, sword), power(pwr)
 {
 }
 
@@ -13,12 +13,7 @@ int Swordsman::Attack(Unit& other)
 	{
 		return damage;
 	}
-	if (other.isInDefense())
-	{
-		damage /= other.getArmor();
-	}
 	damage = (damage * power) - damage;
-	DamageMessage(other, damage);
 	other.GetHit(damage);
 	return damage;
 }

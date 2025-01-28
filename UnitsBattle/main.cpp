@@ -2,6 +2,7 @@
 #include "Archer.h"
 #include "Swordsman.h"
 #include "Team.h"
+#include "Battle.h"
 
 
 bool Team::isFirst = true;
@@ -33,6 +34,9 @@ int main()
 	Archer archer1("Legalas1", 50, bow);
 	Archer archer2("Legalas2", 50, bow);
 	Archer archer3("Legalas3", 50, bow);
+	Mage Mage1("Warlock1", 50, wand);
+	Mage Mage2("Warlock2", 50, wand);
+	Mage Mage3("Warlock3", 50, wand);
 
 	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 
@@ -44,15 +48,27 @@ int main()
 	team2.Append(archer1);
 	team2.Append(archer2);
 	team2.Append(archer3);
+	Team team3;
+	team3.Append(Mage1);
+	team3.Append(Mage2);
+	team3.Append(Mage3);
 	team.Show();
 	team2.Show();
+	team3.Show();
 	std::cout << team.getSize() << " " << team2.getSize() << std::endl;
 
-	//Team team = { srordsman1, srordsman2, srordsman3 };
-	//Team team2 = { archer1, archer2, archer3 };
+	//Team team3 = {Mage1, Mage2, Mage3};
 
-	team.Attack(team2);
+	/*team.Attack(team2);
 	team2.Show();
-	std::cout << team2.getSize();
+	std::cout << team2.getSize() << std::endl;*/
+
+	team.setName("Swordsmen");
+	team2.setName("Archer");
+	Battle battle;
+	battle.Append(team);
+	battle.Append(team2);
+	battle.Start();
+
 }
 

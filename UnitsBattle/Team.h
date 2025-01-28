@@ -17,11 +17,13 @@ protected:
 	void anyDead();
 public:
 	Team();
-	//Team(const std::initializer_list<Unit>& list);
+	//Team(std::initializer_list<Unit*> list);
 	void setName(const char* name);
 	std::string getName();
 	size_t getSize();
-	void Append(Unit& unit);
+	bool isEmpty();
+	void Append(const Unit& unit);
 	void Attack(Team& enemies);
 	void Show();
+	void Defense();
 };

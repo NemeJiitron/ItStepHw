@@ -1,8 +1,8 @@
 	#include "Unit.h"
 
-void Unit::DamageMessage(Unit& other, int damage)
+void Unit::DamageMessage(int damage)
 {
-	std::cout << "Unit " << _name << " attacks " << other._name << ". Damage: " << damage << std::endl;
+	std::cout << "Unit " << _name << " received " << damage << " damage" << std::endl;
 }
 
 Unit::Unit(const char* name, int hitpoints)
@@ -21,6 +21,11 @@ int Unit::GetHit(int damage)
 {
 	if (isAlive())
 	{
+		if (isInDefense())
+		{
+			damage -= armor;
+		}
+		DamageMessage(damage);
 		_hitpoints -= damage;
 		if (_hitpoints <= 0)
 		{
@@ -36,6 +41,7 @@ int Unit::Attack(Unit& other)
 	if (other.isAlive())
 	{
 		int damage = _weapon->getDamage();
+		std::cout << _name << " attacks " << other._name << std::endl;
 		return damage;
 	}
 	std::cout << "Unit " << other._name << " can`t be attacked. " << other._name << " is dead" << std::endl;

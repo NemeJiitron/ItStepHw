@@ -2,8 +2,8 @@
 
 Unit& Team::GetRandomTarget(Team& targets)
 {
-	int rand_index = rand() % targets.units.size() + 1;
-	return *(targets.units[rand_index - 1]);
+	int rand_index = rand() % targets.units.size();
+	return *(targets.units[rand_index]);
 }
 
 void Team::anyDead()
@@ -26,10 +26,10 @@ Team::Team()
 	}
 }
 
-//Team::Team(const std::initializer_list<Unit>& list)
+//Team::Team(const std::initializer_list<Unit*> list)
 //	: Team()
 //{
-//	const Unit* begin = list.begin();
+//	Unit* const *begin = list.begin();																
 //	for (size_t i = 0; i < list.size(); i++)
 //	{
 //		units.push_back(*begin);
@@ -51,9 +51,18 @@ size_t Team::getSize()
 	return units.size();
 }
 
-void Team::Append(Unit& unit)
+bool Team::isEmpty()
 {
-	units.push_back(&unit);
+	if (units.size() == 0)
+	{
+		return true;
+	}
+	return false;
+}
+
+void Team::Append(const Unit& unit)
+{
+	units.push_back(const_cast<Unit*>(&unit));
 }
 
 void Team::Attack(Team& enemies)
@@ -70,5 +79,13 @@ void Team::Show()
 	for (size_t i = 0; i < units.size(); i++)
 	{
 		std::cout << *(units[i]);
+	}
+}
+
+void Team::Defense()
+{
+	for (size_t i = 0; i < units.size(); i++)
+	{
+		units[i]->Defense();
 	}
 }

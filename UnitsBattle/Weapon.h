@@ -19,7 +19,7 @@ protected:
 public:
 	Weapon(const char* _name, int damage, Grade _grade);
 	Weapon(std::string _name);
-	int getDamage();
+	virtual int getDamage() = 0;
 	void Upgrade();
 	void Show();
 	friend std::ostream& operator<<(std::ostream& os, const Weapon& self)
