@@ -127,14 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="abstract\virtual_classes.cpp" />
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="College.cpp" />
     <ClCompile Include="Constr.Destr.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="contact.cpp" />
+    <ClCompile Include="DoubleQueue.cpp" />
     <ClCompile Include="Double_list.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="dynamic_data_structs.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Move_semantics.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -202,12 +207,15 @@
     <Text Include="input.txt" />
     <Text Include="input2.txt" />
     <Text Include="output.txt" />
+    <Text Include="sqr1.txt" />
+    <Text Include="sqrArr.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="College.h" />
     <ClInclude Include="contact.h" />
     <ClInclude Include="DoubleList.h" />
+    <ClInclude Include="DoubleQueue.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
