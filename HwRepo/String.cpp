@@ -59,8 +59,6 @@ void String::GetString()
 	gets_s(str);
 	length = strlen(str);
 	strcpy_s(cStr, length + 1, str);
-
-
 }
 
 String& String::operator=(const String& other)
@@ -135,6 +133,10 @@ bool String::operator>(const String& other)
 
 char String::operator[](size_t index)
 {
+	if (length >= index)
+	{
+		throw std::exception("Out of range");
+	}
 	return cStr[index];
 }
 

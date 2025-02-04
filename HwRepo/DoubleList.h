@@ -28,6 +28,11 @@ public:
 	DoubleList() : head(nullptr), tail(nullptr)
 	{}
 
+	T Top()
+	{
+		return head->value;
+	}
+
 	void AddToHead(const T& value)
 	{
 		DoubleNode<T>* nodePtr = new DoubleNode<T>(value);
@@ -58,37 +63,38 @@ public:
 		}
 		nodePtr->prev = tail;
 		tail->next = nodePtr;
-		head = nodePtr;
+		tail = nodePtr;
 	}
 
 	void DeleteFromHead()
 	{
-		if (head != nullptr)
+		if (head == nullptr)
 		{
-
-			if (head->next != nullptr)
-			{
-				DoubleNode<T>* nodePtr = head;
-				head = head->next;
-				head->prev = nullptr;
-				delete nodePtr;
-			}
-			else
-			{
-				delete head;
-				head = nullptr;
-			}	
+			throw std::exception("Error. Head is empty");
 		}
+		if (head->next != nullptr)
+		{
+			DoubleNode<T>* nodePtr = head;
+			head = head->next;
+			head->prev = nullptr;
+			delete nodePtr;
+		}
+		else
+		{
+			delete head;
+			head = nullptr;
+		}	
 	}
 
 	void DeleteFromTail()
 	{
-		if (tail != nullptr)
+		if (tail == nullptr)
 		{
-			DoubleNode<T>* nodePtr = tail;
-			nodePtr->prev->next = nullptr;
-			delete nodePtr;
+			throw std::exception("Error. Tail is empty");
 		}
+		DoubleNode<T>* nodePtr = tail;
+		nodePtr->prev->next = nullptr;
+		delete nodePtr;
 	}
 
 	void DeleteAll()
@@ -97,6 +103,7 @@ public:
 		{
 			DeleteFromHead();
 		}
+		tail = nullptr;
 	}
 		
 	void Show()
@@ -112,49 +119,52 @@ public:
 		
 	void Insert(size_t index, T value)
 	{
-		if (head != nullptr)
+		if (head == nullptr)
 		{
-			DoubleNode<T>* ptr = head;
-			DoubleNode<T>* newptr = new DoubleNode<T>(value);
-			for (size_t i = 0; i < index; i++)
-			{
-				if (ptr->next != nullptr)
-				{
-					ptr = ptr->next;
-				}
-				else
-				{
-					return;
-				}
-			}
-			newptr->next = ptr;
-			newptr->prev = ptr->prev;
-			ptr->prev->next = newptr;
+			throw std::exception("Error. Head is empty");
 		}
+		DoubleNode<T>* ptr = head;
+		DoubleNode<T>* newptr = new DoubleNode<T>(value);
+		for (size_t i = 0; i < index; i++)
+		{
+			if (ptr->next != nullptr)
+			{
+				ptr = ptr->next;
+			}
+			else
+			{
+				throw std::exception("Error. Out of range");
+			}
+		}
+		newptr->next = ptr;
+		newptr->prev = ptr->prev;
+		ptr->prev->next = newptr;
 	}
 	void DeleteN(size_t index) {
-		if (head != nullptr)
+		if (head == nullptr)
 		{
-			DoubleNode<T>* ptr = head;
-			for (size_t i = 0; i < index; i++)
-			{
-				if (ptr->next != nullptr)
-				{
-					ptr = ptr->next;
-				}
-				else
-				{
-					return;
-				}
-			}
-			ptr->prev->next = ptr->next;
-			ptr->next->prev = ptr->prev;
-			delete ptr;
+			throw std::exception("Error. Head is empty");
 		}
+
+		DoubleNode<T>* ptr = head;
+		for (size_t i = 0; i < index; i++)
+		{
+			if (ptr->next != nullptr)
+			{
+				ptr = ptr->next;
+			}
+			else
+			{
+				throw std::exception("Error. Out of range");
+			}
+		}
+		ptr->prev->next = ptr->next;
+		ptr->next->prev = ptr->prev;
+		delete ptr;
 	}
 	size_t Find(T value)
 	{
-		T index = 0;
+		size_t index = 0;
 		DoubleNode<T>* ptr = head;
 		while (ptr != nullptr)
 		{
@@ -165,7 +175,7 @@ public:
 			index++;
 			ptr = ptr->next;
 		}
-		return NULL;
+		return -1;
 	}
 	int Replace(T newvalue, T valToRep)
 	{
@@ -186,5 +196,36 @@ public:
 		}
 		return res;
 	}
+
+	DoubleList<T>& operator=(const DoubleList<T>& other)
+	{
+		DeleteAll();
+		
+		AddToHead(other.head->value);
+		for (DoubleNode<T>* i = other.head->next; i != nullptr; i = i->next)
+		{
+			AddToTail(i->value);
+		}
+
+		
+		return *this;
+	}
+
+	DoubleList<T> operator+(DoubleList<T>& other)
+	{
+		DoubleList<T> newlist;
+		newlist.AddToHead(head->value);
+		for (DoubleNode<T>* i = head->next; i != nullptr; i = i->next)
+		{
+			newlist.AddToTail(i->value);
+		}
+		newlist.AddToTail(other.head->value);
+		for (DoubleNode<T>* i = other.head->next; i != nullptr; i = i->next)
+		{
+			newlist.AddToTail(i->value);
+		}
+		return newlist;
+	}
+
 
 };

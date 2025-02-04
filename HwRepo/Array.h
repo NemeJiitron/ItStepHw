@@ -34,7 +34,7 @@ public:
 	void Push_Back(T val);
 	void Pop_Back();
 	void Pop_Front();
-	void Errase(int index);
+	void Errase(size_t index);
 	void Clear();
 	void Reserve(int val);
 	void Shrink();
@@ -298,6 +298,10 @@ void Array<T>::Push_Back(T val)
 template<typename T>
 void Array<T>::Pop_Back()
 {
+	if (_size == 0)
+	{
+		throw std::exception("Error. Array is empty");
+	}
 	_data[_size - 1] = -1;
 	_size--;
 }
@@ -305,6 +309,10 @@ void Array<T>::Pop_Back()
 template<typename T>
 void Array<T>::Pop_Front()
 {
+	if (_size == 0)
+	{
+		throw std::exception("Error. Array is empty");
+	}
 	_data[0] = -1;
 	for (size_t i = 0; i < _size - 1; i++)
 	{
@@ -315,8 +323,12 @@ void Array<T>::Pop_Front()
 }
 
 template<typename T>
-void Array<T>::Errase(int index)
+void Array<T>::Errase(size_t index)
 {
+	if (_size <= index)
+	{
+		throw std::exception("Error. Out of range");
+	}
 	_data[index] = -1;
 	for (size_t i = index; i < _size - 1; i++)
 	{
@@ -373,8 +385,9 @@ void Array<T>::Save(const char* filename)
 	{
 		filestream.write(reinterpret_cast<char*>(&_size), sizeof(size_t));
 		filestream.write(reinterpret_cast<char*>(_data), sizeof(T) * _size);
-		
+		return;
 	}
+	throw std::exception("File writing error");
 }
 
 template<typename T>
@@ -388,12 +401,19 @@ void Array<T>::Load(const char* filename)
 		_data = new T[_size];
 		capacity = _size;
 		filestream.read(reinterpret_cast<char*>(_data), sizeof(T) * _size);
+		return;
 	}
+	throw std::exception("File reading error");
+
 }
 
 template<typename T>
 T Array<T>::at(size_t index)
 {
+	if (_size <= index)
+	{
+		throw std::exception("Error. Out of range");
+	}
 	return _data[index];
 }
 
