@@ -9,9 +9,9 @@ bool Team::isFirst = true;
 
 int main()
 {
-	Stick wand("stafff", 10, Common);
-	Bow bow("Short bow", 10, Epic);
-	Sword sword("Spatha", 10, Epic);
+	Weapons::Stick wand("stafff", 10, Common);
+	Weapons::Bow bow("Short bow", 10, Epic);
+	Weapons::Sword sword("Spatha", 10, Epic);
 
 	//Mage mage("warlock", 100, wand);
 	//std::cout << mage;
@@ -28,15 +28,15 @@ int main()
 	//srordsman.Attack(archer);
 	//std::cout << archer;
 
-	Swordsman srordsman1("Jayeun1", 100, sword, 3);
-	Swordsman srordsman2("Jayeun2", 100, sword, 3);
-	Swordsman srordsman3("Jayeun3", 100, sword, 3);
-	Archer archer1("Legalas1", 50, bow);
-	Archer archer2("Legalas2", 50, bow);
-	Archer archer3("Legalas3", 50, bow);
-	Mage Mage1("Warlock1", 50, wand);
-	Mage Mage2("Warlock2", 50, wand);
-	Mage Mage3("Warlock3", 50, wand);
+	Units::Swordsman srordsman1("Jayeun1", 100, sword, 3);
+	Units::Swordsman srordsman2("Jayeun2", 100, sword, 3);
+	Units::Swordsman srordsman3("Jayeun3", 100, sword, 3);
+	Units::Archer archer1("Legalas1", 50, bow);
+	Units::Archer archer2("Legalas2", 50, bow);
+	Units::Archer archer3("Legalas3", 50, bow);
+	Units::Mage Mage1("Warlock1", 50, wand);
+	Units::Mage Mage2("Warlock2", 50, wand);
+	Units::Mage Mage3("Warlock3", 50, wand);
 
 	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 

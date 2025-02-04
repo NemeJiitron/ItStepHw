@@ -1,6 +1,6 @@
 #include "Team.h"
 
-Unit& Team::GetRandomTarget(Team& targets)
+Units::Unit& Team::GetRandomTarget(Team& targets)
 {
 	int rand_index = rand() % targets.units.size();
 	return *(targets.units[rand_index]);
@@ -60,15 +60,15 @@ bool Team::isEmpty()
 	return false;
 }
 
-void Team::Append(const Unit& unit)
+void Team::Append(const Units::Unit& unit)
 {
-	units.push_back(const_cast<Unit*>(&unit));
+	units.push_back(const_cast<Units::Unit*>(&unit));
 }
 
 void Team::Attack(Team& enemies)
 {
 	for (size_t i = 0; i < units.size(); i++){
-		Unit& target = GetRandomTarget(enemies);
+		Units::Unit& target = GetRandomTarget(enemies);
 		units[i]->Attack(target);
 		enemies.anyDead();
 	}

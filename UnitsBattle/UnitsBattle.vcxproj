@@ -130,6 +130,7 @@
     <ClInclude Include="Archer.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="Battle.h" />
     <ClInclude Include="Bow.h" />
     <ClInclude Include="Mage.h" />
     <ClInclude Include="Stick.h" />
@@ -143,6 +144,7 @@
     <ClCompile Include="Archer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Bow.cpp" />
     <ClCompile Include="Mage.cpp" />
     <ClCompile Include="main.cpp" />

@@ -11,9 +11,9 @@ class Team
 {
 protected:
 	static bool isFirst;
-	std::vector<Unit*> units;
+	std::vector<Units::Unit*> units;
 	std::string name;
-	Unit& GetRandomTarget(Team& targets);
+	Units::Unit& GetRandomTarget(Team& targets);
 	void anyDead();
 public:
 	Team();
@@ -22,7 +22,7 @@ public:
 	std::string getName();
 	size_t getSize();
 	bool isEmpty();
-	void Append(const Unit& unit);
+	void Append(const Units::Unit& unit);
 	void Attack(Team& enemies);
 	void Show();
 	void Defense();
