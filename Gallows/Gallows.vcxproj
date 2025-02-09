@@ -130,10 +130,15 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConsoleGameView.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameWord.h" />
     <ClInclude Include="GameWordsBuilder.h" />
+    <ClInclude Include="IGameView.h" />
     <ClInclude Include="WordsManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="words.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

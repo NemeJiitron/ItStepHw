@@ -15,10 +15,15 @@ public:
 	}
 	GameWord getRandomWord()
 	{
-		auto&& first = buffer.begin();
-		GameWord result(*first);
-		buffer.erase(first);
-		return result;
+		int i = rand() % buffer.size();
+		buffer.erase(buffer.begin() + i);
+		return buffer[i];
+	}
+	void Show()
+	{
+		for (size_t i = 0; i < buffer.size(); i++)
+		{
+			std::cout << buffer[i];
+		}
 	}
 };
-
