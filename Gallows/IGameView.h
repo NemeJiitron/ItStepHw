@@ -14,6 +14,6 @@ public:
 	virtual void WordGuessed() = 0;
 	virtual void GameOver() = 0;
 	virtual bool IsGameExit() = 0;
-
+	 
 };
 

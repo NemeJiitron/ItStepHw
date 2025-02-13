@@ -26,4 +26,13 @@ public:
 			std::cout << buffer[i];
 		}
 	}
+	void Save()
+	{
+		manager->Save(buffer);
+	}
+	void Append(std::string word)
+	{
+		buffer.push_back(word);
+		manager->Append(word);
+	}
 };

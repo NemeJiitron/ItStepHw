@@ -3,11 +3,13 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include "Cryptographer.h"
 
 class WordsManager
 {
 private:
 	std::vector<std::string> words;
+	Cryptographer crypt;
 public:
 	WordsManager()
 	{
@@ -17,45 +19,21 @@ public:
 	{	
 		return words;
 	}
-	void Save() {}
+	void Save(std::vector<std::string> out_words)
+	{
+		crypt.Encrypt(out_words);
+	}
+	void Save()
+	{
+		crypt.Encrypt(words);
+	}
 	void Load()
 	{
-		std::string name("words.txt");
-		std::fstream stream(name, std::ios::in);
-		if (stream.is_open())
-		{
-			std::string word;
-			while (stream.good())
-			{
-				stream >> word;
-				words.emplace_back(word);
-			}
-
-			/*int i = 0;
-			while (true)
-			{
-				std::string word;
-				char ch = stream.get();
-				while (ch != '\n' && !stream.eof())
-				{
-					word += ch;
-				}
-				if (stream.eof())
-				{
-					word += ch;
-					words[i] = word;
-					i++;
-					break;
-				}
-				word.shrink_to_fit();
-				words[i] = word;
-				i++;
-				word.clear();
-			}*/
-		}
-	
-		words.shrink_to_fit();
+		words = crypt.ReEncrypt();
 	}
-	void Append(std::string word) {}
+	void Append(std::string word) 
+	{
+		words.push_back(word);
+	}
 };
 

@@ -56,7 +56,10 @@ public:
 	{
 
 	}
-	void Save() {}
+	void Save() 
+	{
+		words_builder.Save();
+	}
 	void Load() {}
 	~Game()
 	{
